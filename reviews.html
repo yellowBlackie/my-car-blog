@@ -5,9 +5,9 @@
     <meta name="author" content="Женя Науменко">
     <title>Огляди - Світ Авто</title>
 </head>
-<body>
+<body bgcolor="#fffaf0">
     <header>
-        <h1>Огляди та статті</h1>
+        <h1>Порівняння та огляди</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Головна</a></li>
@@ -19,8 +19,53 @@
     </header>
 
     <main>
-        <h2>Останні новини</h2>
-        <p>Розділ в розробці!. Скоро тут будуть огляди на нові моделі кросоверів.</p>
+        <h2>Проста таблиця (3 колонки, 4 рядки)</h2>
+        <table border="1" width="60%">
+            <caption>Порівняння моделей</caption>
+            <tr bgcolor="lightgray">
+                <th>Volkswagen</th>
+                <th>Mazda</th>
+                <th>BMW</th>
+            </tr>
+            <tr align="center">
+                <td><img src="car.jpg" width="80" alt="VW"></td>
+                <td><img src="car.jpg" width="80" alt="Mazda"></td>
+                <td><img src="car.jpg" width="80" alt="BMW"></td>
+            </tr>
+            <tr align="center">
+                <td><a href="#">Огляд VW</a></td>
+                <td><a href="#">Огляд Mazda</a></td>
+                <td><a href="#">Огляд BMW</a></td>
+            </tr>
+            <tr align="center">
+                <td>Надійний седан</td>
+                <td>Сучасний кросовер</td>
+                <td>Спортивний седан</td>
+            </tr>
+        </table>
+
+        <h2>Складна таблиця</h2>
+        <table border="2" cellspacing="5" cellpadding="10" width="80%">
+            <caption>Детальні характеристики</caption>
+            <colgroup>
+                <col style="background-color: #e6e6e6;">
+                <col span="2" style="background-color: #d9edf7;">
+            </colgroup>
+            
+            <tr>
+                <th colspan="3" align="center">Загальні дані</th>
+            </tr>
+            
+            <tr>
+                <td rowspan="2" valign="middle" align="center"><b>Двигуни</b></td>
+                <td align="left">Бензин 1.6</td>
+                <td align="right">Витрата 7л/100км</td>
+            </tr>
+            <tr>
+                <td align="left">Бензин 2.5</td>
+                <td align="right">Витрата 9л/100км</td>
+            </tr>
+        </table>
     </main>
 </body>
 </html>
