@@ -1,27 +1,21 @@
-/* =========================================
-   1. БАЗОВІ СТИЛІ ТА BODY (Селектор тегу)
-========================================= */
+/* БАЗОВІ СТИЛІ ТА BODY */
 body {
-    background-color: #f4f6f9; /* Фон тіла документа */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Шрифт */
-    color: #333333; /* Колір тексту */
-    line-height: 1.6; /* Міжрядковий інтервал */
+    background-color: #f4f6f9; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    color: #333333; 
+    line-height: 1.6;
     margin: 0;
     padding: 0;
 }
 
-/* =========================================
-   2. ЗАГОЛОВКИ (HN) ТА ВИРІВНЮВАННЯ
-========================================= */
+/* ЗАГОЛОВКИ ТА ВИРІВНЮВАННЯ*/
 h1, h2, h3 {
     color: #2c3e50;
-    text-align: center; /* Вирівнювання */
+    text-align: center; 
     margin-top: 30px;
 }
 
-/* =========================================
-   3. УНІКАЛЬНИЙ ІДЕНТИФІКАТОР (#id)
-========================================= */
+/* УНІКАЛЬНИЙ ІДЕНТИФІКАТОР */
 #main-header {
     background-color: #1a252f;
     padding: 15px 0;
@@ -33,11 +27,9 @@ h1, h2, h3 {
     margin: 0;
 }
 
-/* =========================================
-   4. НАВІГАЦІЯ ТА ПОСИЛАННЯ (Селектори)
-========================================= */
+/* НАВІГАЦІЯ ТА ПОСИЛАННЯ */
 nav ul {
-    list-style: none; /* Прибираємо маркери */
+    list-style: none; 
     padding: 0;
     text-align: center;
     margin: 10px 0 0 0;
@@ -58,37 +50,33 @@ nav ul li a:hover {
     background-color: #3498db;
 }
 
-/* Глобальні посилання (тіло документу) */
+/* Глобальні посилання  */
 a {
     color: #2980b9;
     text-decoration: none;
-    font-style: italic; /* Стиль шрифта */
+    font-style: italic; 
 }
 a:hover {
     text-decoration: underline;
 }
 
-/* =========================================
-   5. КЛАСИ ТА !IMPORTANT
-========================================= */
+/*КЛАСИ ТА !IMPORTANT*/
 .important-contact {
-    /* Використання !important для пріоритету кольору */
     color: #e74c3c !important; 
     font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
 }
 
-/* =========================================
-   6. ОФОРМЛЕННЯ СПИСКІВ (Межі, поля, заповнення)
-========================================= */
+/* ОФОРМЛЕННЯ СПИСКІВ */
+
 /* Маркований список */
 .custom-ul {
-    background-color: #ffffff; /* Фон */
-    border: 1px solid #bdc3c7; /* Межа */
+    background-color: #ffffff;
+    border: 1px solid #bdc3c7;
     border-radius: 8px;
-    padding: 20px 20px 20px 40px; /* Заповнення (внутрішні відступи) */
-    margin: 20px auto; /* Поля (зовнішні відступи) */
+    padding: 20px 20px 20px 40px; 
+    margin: 20px auto; 
     max-width: 600px;
     list-style-type: square;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -125,14 +113,12 @@ a:hover {
     padding-bottom: 10px;
 }
 
-/* =========================================
-   7. ОФОРМЛЕННЯ ТАБЛИЦЬ
-========================================= */
+/* ОФОРМЛЕННЯ ТАБЛИЦЬ*/
 .styled-table {
     width: 85%;
-    margin: 30px auto; /* Зовнішні поля */
-    border-collapse: collapse; /* Замінює cellspacing */
-    background-color: #ffffff; /* Фон таблиці */
+    margin: 30px auto;
+    border-collapse: collapse; 
+    background-color: #ffffff; 
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 .styled-table caption {
@@ -142,8 +128,8 @@ a:hover {
     color: #2c3e50;
 }
 .styled-table th, .styled-table td {
-    border: 1px solid #dddddd; /* Межі комірок */
-    padding: 15px; /* Заповнення комірок (cellpadding) */
+    border: 1px solid #dddddd; 
+    padding: 15px; 
     text-align: center;
 }
 .styled-table th {
@@ -156,13 +142,12 @@ a:hover {
     background-color: #f9f9f9;
 }
 .styled-table tr:hover {
-    background-color: #f1f8ff; /* Підсвітка при наведенні */
+    background-color: #f1f8ff; 
 }
 .styled-table img {
     border-radius: 5px;
 }
 
-/* Основний контейнер */
 main {
     max-width: 1100px;
     margin: 0 auto;
