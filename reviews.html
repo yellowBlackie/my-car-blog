@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="author" content="Женя Науменко">
     <title>Огляди - Світ Авто</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body bgcolor="#fffaf0">
-    <header>
+<body>
+    <header id="main-header">
         <h1>Порівняння та огляди</h1>
         <nav>
             <ul>
@@ -19,51 +20,47 @@
     </header>
 
     <main>
-        <h2>Проста таблиця (3 колонки, 4 рядки)</h2>
-        <table border="1" width="60%">
-            <caption>Порівняння моделей</caption>
-            <tr bgcolor="lightgray">
+        <table class="styled-table">
+            <caption>Коротка зводка моделей</caption>
+            <tr>
                 <th>Volkswagen</th>
                 <th>Mazda</th>
                 <th>BMW</th>
             </tr>
-            <tr align="center">
-                <td><img src="vw.jpg" width="120" alt="VW Polo"></td>
-                <td><img src="mazda.jpg" width="120" alt="Mazda CX-5"></td>
-                <td><img src="bmw.jpg" width="120" alt="BMW M5"></td>
+            <tr>
+                <td><img src="vw.jpg" style="width:120px;" alt="VW Polo"></td>
+                <td><img src="mazda.jpg" style="width:120px;" alt="Mazda CX-5"></td>
+                <td><img src="bmw.jpg" style="width:120px;" alt="BMW M5"></td>
             </tr>
-            <tr align="center">
+            <tr>
                 <td><a href="#">Огляд VW</a></td>
                 <td><a href="#">Огляд Mazda</a></td>
                 <td><a href="#">Огляд BMW</a></td>
             </tr>
-            <tr align="center">
+            <tr>
                 <td>Надійний седан</td>
                 <td>Сучасний кросовер</td>
                 <td>Спортивний седан</td>
             </tr>
         </table>
 
-        <h2>Складна таблиця</h2>
-        <table border="2" cellspacing="5" cellpadding="10" width="80%">
-            <caption>Детальні характеристики</caption>
+        <table class="styled-table">
+            <caption>Детальні технічні характеристики</caption>
             <colgroup>
-                <col style="background-color: #e6e6e6;">
-                <col span="2" style="background-color: #d9edf7;">
+                <col style="background-color: #fdfbfb;">
+                <col span="2" style="background-color: #f0f8ff;">
             </colgroup>
 
             <tr>
-                <th colspan="3" align="center">Загальні дані</th>
-            </tr>
-            
-            <tr>
-                <td rowspan="2" valign="middle" align="center"><b>Двигуни</b></td>
-                <td colspan="2" align="center">Бензин 1.6 (VW) - витрата 7 літрів</td>
-               
+                <th colspan="3">Загальні дані</th>
             </tr>
             <tr>
-                <td align="left">Бензин 2.5 (Mazda)</td>
-                <td align="right">Витрата 9л/100км</td>
+                <td rowspan="2"><b>Двигуни</b></td>
+                <td colspan="2">Бензин 1.6 (VW) — витрата 7 літрів</td>
+            </tr>
+            <tr>
+                <td>Бензин 2.5 (Mazda)</td>
+                <td>Витрата 9л/100км</td>
             </tr>
         </table>
     </main>
