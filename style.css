@@ -14,11 +14,19 @@ h1, h2, h3 {
 }
 
 #main-header {
-    background-color: #1a252f;
+    background-color: #e50e0e;
     padding: 15px 0;
     margin-bottom: 30px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
+
+.main-header {
+    background-color: #d3e90c;
+    padding: 15px 0;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
 #main-header h1 {
     color: #ffffff;
     margin: 0;
@@ -141,3 +149,29 @@ main {
     margin: 0 auto;
     padding: 20px;
 }
+
+
+/* КОНТЕКСТНИЙ СЕЛЕКТОР */
+p b {
+    color: #e67e22; /* Оранжевий колір для жирного тексту в абзацах */
+    background-color: #fef5e7;
+    padding: 0 4px;
+}
+
+/*ДОЧІРНІЙ СЕЛЕКТОР */
+nav > ul > li {
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+    
+nav > ul > li:hover {
+    border-bottom: 2px solid #3498db; /* Підкреслення пункту меню при наведенні */
+}
+
+/* СУСІДНІ СЕЛЕКТОРИ*/ 
+   
+h2 + p {
+    font-variant: small-caps; /* Робить перший абзац після кожного H2 малими великими літерами */
+    letter-spacing: 1px;
+}
+
