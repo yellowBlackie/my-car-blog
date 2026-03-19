@@ -14,18 +14,12 @@ h1, h2, h3 {
 }
 
 #main-header {
-    background-color: #e50e0e;
+    background-color: #1a112a;
     padding: 15px 0;
     margin-bottom: 30px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.main-header {
-    background-color: #d3e90c;
-    padding: 15px 0;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
 
 #main-header h1 {
     color: #ffffff;
@@ -163,7 +157,7 @@ nav > ul > li {
     border-bottom: 2px solid transparent;
     transition: 0.3s;
 }
-    
+
 nav > ul > li:hover {
     border-bottom: 2px solid #3498db; /* Підкреслення пункту меню при наведенні */
 }
