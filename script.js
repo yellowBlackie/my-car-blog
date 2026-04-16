@@ -27,7 +27,7 @@ function userDialogue() {
 
 /* вивід інформації про розробника
    Параметри: прізвище, ім'я, посада (за замовчуванням). */
-function showDeveloper(surname, name, position = "Автоексперт та розробник") {
+function showDeveloper(surname, name, position="Автор та розробник сайту") {
     console.log("=== Дані розробника сторінки ===");
     console.log(`Виконавець: ${name} ${surname}`);
     console.log(`Посада: ${position}`);
@@ -75,7 +75,7 @@ function modifyPageDOM() {
     const oldH2 = document.querySelector(".maintenance-tips h2");
     if (oldH2 && !oldH2.textContent.includes("Оновлені")) {
         const newH2 = document.createElement("h2");
-        newH2.textContent = "Оновлені короткі поради автомобілістам";
+        newH2.textContent = "Короткі поради автомобілістам";
         oldH2.replaceWith(newH2);
     }
 
@@ -131,3 +131,120 @@ function modifyPageDOM() {
         tipsBlock.prepend(notice);
     }
 }
+
+/* Події та обробники*/
+
+// Обробник через атрибут 
+// Ці функції викликаються з HTML: onmouseover="imgHighlight(this)" та onmouseout="imgNormal(this)"
+function imgHighlight(img) {
+    img.style.transform = "scale(1.03)";
+    img.style.transition = "0.3s";
+}
+function imgNormal(img) {
+    img.style.transform = "scale(1)";
+}
+
+// Обробник через властивість DOM 
+const vwTitle = document.getElementById("vw-title");
+if (vwTitle) {
+    vwTitle.onclick = function() {
+        this.style.color = "#e74c3c"; // Робить з'аголовок червоним при кліку
+        console.log("Обробник спрацював через властивість onclick");
+    };
+}
+
+// addEventListener (Кілька обробників на одну подію)
+const likeBtn = document.getElementById("like-btn");
+
+function animateLike() { 
+    likeBtn.style.transform = "scale(1.1)";
+    setTimeout(() => likeBtn.style.transform = "scale(1)", 200);
+}
+function logLikeMessage() { 
+    console.log("Другий обробник: Запис у консоль (Дякуємо за реакцію!)"); 
+}
+
+// Призначаємо ОБИДВА обробники на один клік
+if (likeBtn) {
+    likeBtn.addEventListener("click", animateLike);
+    likeBtn.addEventListener("click", logLikeMessage);
+}
+
+
+// Об'єкт-обробник, handleEvent та removeEventListener 
+const favBtn = document.getElementById("favorite-btn");
+
+const myEventObject = {
+    handleEvent(event) {
+        alert("Авто додано в обране.");
+        
+        // event.currentTarget вказує на елемент, до якого прив'язаний обробник
+        console.log("Елемент (currentTarget):", event.currentTarget.tagName);
+        
+        // Візуально змінюємо кнопку
+        event.currentTarget.textContent = "✔ Вже в обраному";
+        event.currentTarget.style.backgroundColor = "#95a5a6";
+        event.currentTarget.style.cursor = "default";
+        
+        // Видалення об'єкта після першого спрацювання 
+        event.currentTarget.removeEventListener("click", this);
+    }
+};
+
+// Передаємо цілий об'єкт замість функції
+if (favBtn) {
+    favBtn.addEventListener("click", myEventObject);
+}
+
+
+/* Делегування подій та Поведінка*/
+
+// Підсвічування списку (Делегування)
+const interactiveList = document.getElementById("interactive-list");
+if (interactiveList) {
+    // Вішаємо ОДИН обробник на весь список <ul>
+    interactiveList.onclick = function(event) {
+        // event.target - це той конкретний елемент, на який клікнули
+        let target = event.target;
+
+        // Перевіряємо, чи клікнули саме на <li> (а не на маркер чи між рядками)
+        if (target.tagName === 'LI') {
+            // Перемикаємо клас підсвічування
+            target.classList.toggle("highlight-item");
+        }
+    };
+}
+
+// Меню з делегуванням та атрибутами data-*
+
+const carMenu = document.getElementById("car-menu");
+
+const menuActions = {
+    startEngine() { alert("Врумм! Двигун заведено!"); },
+    stopEngine() { alert("Двигун вимкнено."); },
+    honk() { alert("БІ-БІП! 🚗"); }
+};
+
+if (carMenu) {
+    // Прив'язуємо обробник до всього контейнера
+    carMenu.onclick = function(event) {
+        // Шукаємо атрибут data-method (відповідає data-* у завданні)
+        let methodName = event.target.dataset.method;
+        if (methodName && menuActions[methodName]) {
+            menuActions[methodName](); // Викликаємо метод класу з відповідним іменем
+        }
+    };
+}
+
+
+// Патерн «Поведінка» (Behavior) 
+// Додаємо поведінку всім елементам, які мають атрибут data-counter
+document.addEventListener('click', function(event) {
+    // Перевіряємо, чи є у елемента, на який клікнули, атрибут data-counter
+    if (event.target.dataset.counter !== undefined) {
+        // Збільшуємо значення (лічильник)
+        event.target.textContent = parseInt(event.target.textContent) + 1; 
+    }
+});
+
+

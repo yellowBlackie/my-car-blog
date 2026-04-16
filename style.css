@@ -169,3 +169,13 @@ h2::before {
     font-size: 1.1rem;
     list-style-type: disclosure-closed;
 }
+
+/* Підсвічування елементів списку */
+.highlight-list-item {
+    background-color: #f1c40f;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px 5px;
+    transition: 0.3s;
+}

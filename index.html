@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Женя Науменко">
-    <title>Блог - Світ Авто</title>
+    <title>Блог - Світ Авто (Lab 7)</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стиль для підсвічування елементів списку */
+        .highlight-item {
+            background-color: #f1c40f !important;
+            color: #2c3e50 !important;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+    </style>
 </head>
 <body>
     <header id="main-header" class="main-header">
@@ -20,7 +29,6 @@
     </header>
 
     <main>
-        <!-- Кнопки керування (JS Трігери) -->
         <div style="text-align: center; margin-bottom: 20px;">
             <button onclick="userDialogue()">Підбір авто</button>
             <button onclick="compareCarNames('Volkswagen', 'Mazda')">Порівняти назви</button>
@@ -29,54 +37,70 @@
             <button onclick="externalRedirect()">AUTO.RIA</button>
         </div>
 
+        <div id="car-menu" style="background: #eee; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+            <h3>Керування авто</h3>
+            <button data-method="startEngine">Завести</button>
+            <button data-method="stopEngine">Зупинити</button>
+            <button data-method="honk">Сигнал</button>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 20px;">
+            <p>Лічильники переглядів:</p>
+            <button data-counter>0</button>
+            <button data-counter>0</button>
+        </div>
+
         <h2>Останні публікації</h2>
         
         <div class="blog-post">
-            <img src="vw.jpg" alt="Мій VW Polo" class="post-image-float">
-            <h3>З чого все почалося: Volkswagen Polo Sedan (2012)</h3>
+            <img src="vw.jpg" alt="Мій VW Polo" class="post-image-float" 
+                 id="main-car-img"
+                 onmouseover="imgHighlight(this)" 
+                 onmouseout="imgNormal(this)">
+            
+            <h3 id="vw-title">З чого все почалося: Volkswagen Polo Sedan (2012)</h3>
             <p>
                 Це мій перший серйозний досвід. Надійний, економний і перевірений часом автомобіль.
                 <span class="highlight-text">Головне правило:</span> своєчасна заміна масла вирішує все.
             </p>
-        </div>
-        
-        <div class="promo-banner">
-            <span class="badge-hot">Новий огляд</span>
-            <h3>Mazda CX-5 Touring S (2025): Перші враження</h3>
-            <p>Дизайн KODO та нові системи безпеки роблять свою справу.</p>
-            <a href="catalog.html#mazda-section" class="read-more-link">Читати повні характеристики</a>
+            
+            <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px; clear: both;">
+                <button id="like-btn" style="background: #3498db; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-right: 10px;">
+                    👍 Подобається
+                </button>
+                
+                <button id="favorite-btn" style="background: #f39c12; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">
+                    ⭐ В обране
+                </button>
+            </div>
         </div>
 
         <div class="maintenance-tips">
             <h2>Короткі поради автомобілістам</h2>
-            <ul class="tips-list">
-                <li>Завжди прогрівайте двигун взимку хоча б 2-3 хвилини.</li>
+            <ul class="tips-list" id="interactive-list">
+                <li>Завжди прогрівайте двигун взимку.</li>
                 <li>Перевіряйте тиск у шинах.</li>
-                <li id="removable-tip">Топ порад для автомобілістів</li>
+                <li>Топ порад для автомобілістів.</li>
             </ul>
         </div>
 
         <a href="#main-header" class="btn-up">Вгору</a>
     </main>
 
-    <!-- Внутрішній скрипт -->
     <script>
-        // 1. Alert при завантаженні
-        alert("Вітаємо на автоблозі!");
+        // Завдання 1.1: alert при завантаженні [cite: 1064]
+        alert("Вітаю на моєму блозі про автомобілі! Тут ви знайдете корисні поради та огляди. Приємного читання!");
 
-        // 2. Зміна фону сторінки на 30 секунд
+        // Завдання 1.1: зміна фону на 30 секунд [cite: 1070]
         const originalBg = document.body.style.backgroundColor;
         document.body.style.backgroundColor = "#fdf2f2"; 
-        
         setTimeout(() => {
             document.body.style.backgroundColor = originalBg;
             console.log("30 секунд минуло - фон повернуто.");
         }, 30000);
 
-        // 3. document.write
-        document.write("<footer style='text-align:center; padding:10px;'><p>&copy; 2026 Світ Авто.</p></footer>");
+        document.write("<footer style='text-align:center; padding:10px;'><p>&copy; 2026 Світ Авто.</p></footer>"); // [cite: 1073]
     </script>
-
     <script src="script.js"></script>
 </body>
 </html>
