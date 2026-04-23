@@ -179,3 +179,73 @@ h2::before {
     padding: 2px 5px;
     transition: 0.3s;
 }
+
+/* Шоурум */
+.car-showroom {
+    margin-top: 50px;
+}
+.showroom-box {
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.showroom-img {
+    width: 280px;
+    margin: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+.details-panel {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    border-top: 2px solid #3498db;
+    min-height: 40px;
+}
+
+/* Стікер пам'ятка */
+.sticky-note {
+    position: absolute;
+    top: 250px;
+    right: 20px;
+    width: 180px;
+    background: #fffa90; /* Класичний колір стікера */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.15);
+    cursor: grab;
+    z-index: 9999;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    user-select: none;
+}
+.sticky-note:active { cursor: grabbing; }
+
+/* Шапка нотатки для перетягування */
+.drag-header {
+    cursor: grab;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 8px;
+}
+.drag-header:active {
+    cursor: grabbing;
+}
+
+/* Зона редагування тексту */
+.editable-text {
+    cursor: text;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    min-height: 40px;
+    outline: none; /* Прибирає стандартну синю рамку браузера при кліку */
+}
+.editable-text:focus {
+    background: rgba(255, 255, 255, 0.8);
+}

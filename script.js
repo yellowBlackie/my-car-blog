@@ -170,7 +170,6 @@ if (likeBtn) {
     likeBtn.addEventListener("click", logLikeMessage);
 }
 
-
 // Об'єкт-обробник, handleEvent та removeEventListener 
 const favBtn = document.getElementById("favorite-btn");
 
@@ -247,4 +246,85 @@ document.addEventListener('click', function(event) {
     }
 });
 
+/* ІНТЕРАКТИВНИЙ ШОУРУМ (mouseover / mouseout / target)*/
+const showroom = document.getElementById("showroom-container");
+const details = document.getElementById("showroom-details");
 
+if (showroom) {
+    showroom.addEventListener("mouseover", function(event) {
+        let target = event.target; // На що навели
+        let related = event.relatedTarget; // Звідки прийшли
+
+        if (target.tagName === 'IMG') {
+            target.style.transform = "scale(1.05)";
+            target.style.boxShadow = "0 8px 16px rgba(0,0,0,0.2)";
+            
+            // Використовуємо дані з атрибута та показуємо шлях курсора для звіту
+            details.innerHTML = `<strong>${target.alt}:</strong> ${target.dataset.info}`;
+            console.log(`Курсор перейшов з ${related ? related.tagName : 'вікна'} на ${target.tagName}`);
+        }
+    });
+
+    showroom.addEventListener("mouseout", function(event) {
+        let target = event.target;
+        if (target.tagName === 'IMG') {
+            target.style.transform = "scale(1)";
+            target.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+            details.textContent = "Поставте курсор на автомобіль, щоб дізнатися деталі";
+        }
+    });
+}
+
+/* ПЕРЕТЯГУВАННЯ НОТАТКИ (Drag-and-Drop) З ОБМЕЖЕННЯМИ*/
+const note = document.getElementById("maintenance-note");
+
+if (note) {
+    note.onmousedown = function(event) {
+        // ЗАХИСТ: Якщо клікнули по зоні редагування тексту — не починаємо перетягування
+        if (event.target.closest('[contenteditable="true"]')) {
+            return; 
+        }
+
+        let shiftX = event.clientX - note.getBoundingClientRect().left;
+        let shiftY = event.clientY - note.getBoundingClientRect().top;
+
+        note.style.position = 'absolute';
+        note.style.zIndex = 1000;
+        document.body.append(note);
+
+        // Функція переміщення з обмеженнями
+        function moveAt(pageX, pageY) {
+            let newX = pageX - shiftX;
+            let newY = pageY - shiftY;
+
+            // Обмеження по горизонталі 
+            // Беремо ширину вікна мінус ширину самої нотатки
+            let maxX = document.documentElement.clientWidth - note.offsetWidth;
+            if (newX < 0) newX = 0;           // Не пускаємо за лівий край
+            if (newX > maxX) newX = maxX;     // Не пускаємо за правий край
+
+            // Обмеження по вертикалі 
+            // Беремо повну висоту документа мінус висоту самої нотатки
+            let maxY = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - note.offsetHeight;
+            if (newY < 0) newY = 0;           // Не пускаємо за верхній край
+            if (newY > maxY) newY = maxY;     // Не пускаємо за нижній край
+
+            // Застосовуємо вирахувані координати
+            note.style.left = newX + 'px';
+            note.style.top = newY + 'px';
+        }
+
+        function onMouseMove(event) {
+            moveAt(event.pageX, event.pageY);
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        document.onmouseup = function() {
+            document.removeEventListener('mousemove', onMouseMove);
+            document.onmouseup = null;
+        };
+    };
+
+    note.ondragstart = function() { return false; };
+}

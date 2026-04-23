@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Женя Науменко">
-    <title>Блог - Світ Авто (Lab 7)</title>
+    <title>Блог - Світ Авто (Lab 8)</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Стиль для підсвічування елементів списку */
+        /* Стиль для підсвічування елементів списку (Lab 7) */
         .highlight-item {
             background-color: #f1c40f !important;
             color: #2c3e50 !important;
@@ -44,43 +44,47 @@
             <button data-method="honk">Сигнал</button>
         </div>
 
-        <div style="text-align: center; margin-bottom: 20px;">
-            <p>Лічильники переглядів:</p>
-            <button data-counter>0</button>
-            <button data-counter>0</button>
-        </div>
+        <section style="margin: 30px 0; text-align: center;">
+            <h2>Наш автопарк (Шоурум)</h2>
+            <div id="showroom-container" style="background: #fdfdfd; padding: 20px; border-radius: 12px; border: 1px solid #ddd;">
+                <img src="vw.jpg" style="width: 250px; margin: 10px; border-radius: 8px; cursor: pointer; transition: 0.3s;" 
+                     alt="Volkswagen Polo" data-info="Надійний седан 2012 року.">
+                <img src="mazda.jpg" style="width: 250px; margin: 10px; border-radius: 8px; cursor: pointer; transition: 0.3s;" 
+                     alt="Mazda CX-5" data-info="Сучасний кросовер 2025 року.">
+                
+                <div id="showroom-details" style="margin-top: 15px; padding: 10px; border-top: 2px solid #3498db; min-height: 40px;">
+                    Наведіть курсор на авто для деталей
+                </div>
+            </div>
+        </section>
+
+        <div id="maintenance-note" class="sticky-note">
+    <div class="drag-header">
+        <strong>📌 Нотатка</strong> <small>(тягни тут)</small>
+    </div>
+    <div contenteditable="true" class="editable-text">
+        Запис на СТО: <br> 15 травня, 10:00.
+    </div>
+</div>
 
         <h2>Останні публікації</h2>
-        
         <div class="blog-post">
-            <img src="vw.jpg" alt="Мій VW Polo" class="post-image-float" 
-                 id="main-car-img"
-                 onmouseover="imgHighlight(this)" 
-                 onmouseout="imgNormal(this)">
-            
+            <img src="vw.jpg" alt="Мій VW Polo" class="post-image-float" id="main-car-img">
             <h3 id="vw-title">З чого все почалося: Volkswagen Polo Sedan (2012)</h3>
             <p>
-                Це мій перший серйозний досвід. Надійний, економний і перевірений часом автомобіль.
-                <span class="highlight-text">Головне правило:</span> своєчасна заміна масла вирішує все.
+                Це мій перший серйозний досвід. <span class="highlight-text">Головне правило:</span> своєчасна заміна масла вирішить все.
             </p>
-            
-            <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px; clear: both;">
-                <button id="like-btn" style="background: #3498db; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-right: 10px;">
-                    👍 Подобається
-                </button>
-                
-                <button id="favorite-btn" style="background: #f39c12; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">
-                    ⭐ В обране
-                </button>
+            <div style="margin-top: 15px;">
+                <button id="like-btn" style="background: #3498db; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">👍 Подобається</button>
+                <button id="favorite-btn" style="background: #f39c12; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">⭐ В обране</button>
             </div>
         </div>
 
         <div class="maintenance-tips">
-            <h2>Короткі поради автомобілістам</h2>
+            <h2>Короткі поради</h2>
             <ul class="tips-list" id="interactive-list">
                 <li>Завжди прогрівайте двигун взимку.</li>
                 <li>Перевіряйте тиск у шинах.</li>
-                <li>Топ порад для автомобілістів.</li>
             </ul>
         </div>
 
@@ -88,18 +92,11 @@
     </main>
 
     <script>
-        // Завдання 1.1: alert при завантаженні [cite: 1064]
-        alert("Вітаю на моєму блозі про автомобілі! Тут ви знайдете корисні поради та огляди. Приємного читання!");
-
-        // Завдання 1.1: зміна фону на 30 секунд [cite: 1070]
+        alert("Вітаємо у Світі Авто!");
         const originalBg = document.body.style.backgroundColor;
         document.body.style.backgroundColor = "#fdf2f2"; 
-        setTimeout(() => {
-            document.body.style.backgroundColor = originalBg;
-            console.log("30 секунд минуло - фон повернуто.");
-        }, 30000);
-
-        document.write("<footer style='text-align:center; padding:10px;'><p>&copy; 2026 Світ Авто.</p></footer>"); // [cite: 1073]
+        setTimeout(() => { document.body.style.backgroundColor = originalBg; }, 30000);
+        document.write("<footer style='text-align:center; padding:10px;'><p>&copy; 2026 Світ Авто.</p></footer>"); //
     </script>
     <script src="script.js"></script>
 </body>
